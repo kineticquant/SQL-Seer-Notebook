@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Local css load -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <!-- Tailwind load -->
+    <!-- <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"> -->
+    <title>SQL Seer</title>
+</head>
+<body>
+    <h1>SQL Query Editor</h1>
+
+    <div id="">
+        Configuration Bar:
+        <br>
+        <button> Test</button>
+        <select id="themeSelector">
+            <option value="lightMode">Light Mode</option>
+            <option value="creamMode">Cream Mode</option>
+            <option value="darkMode">Dark Mode</option>
+        </select>
+        
+    </div>
+
+    <div id="btnRun">
+        <button id="runQuery">Run Query</button>
+    </div>
+    
+    <div id="editor"></div>
+    
+    <div id="result"></div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js"></script>
+    <script>
+        // Initialize Editor
+        var editor = ace.edit("editor");
+        
+        editor.session.setMode("ace/mode/sql");
+        editor.setTheme("ace/theme/clouds");
+        editor.setValue("SELECT * FROM employees");
+
+        
+        
+        
+        document.getElementById('runQuery').addEventListener('click', () => {
+            const query = editor.getValue();
+            // Send the query to the server (handled later with backend logic)
+            fetch('/run-sql', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ query })
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('result').innerHTML = JSON.stringify(data);
+            })
+            .catch(error => console.error('Error:', error));
+        });
+    </script>
+</body>
+</html>
