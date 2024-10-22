@@ -4,10 +4,15 @@ body {
     padding: 0;
     font-family: Arial, sans-serif;
 }
-#editor { 
+/* #editor { 
     height: 300px; 
     width: 100%; 
-    border: 1px solid #82ba91; 
+    border: 1px solid #335fff; 
+} */
+/* switched to Tailwind so just establishing first has 300px/100%wi */
+#editor {
+    height: 300px;
+    width: 100%;
 }
 #result {
     margin-top: 20px;

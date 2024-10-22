@@ -5,3 +5,4 @@
 
 # OOOORRR Redis?
 
+# Preferred editor display

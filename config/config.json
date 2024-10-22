@@ -1,0 +1,39 @@
+{
+    "themes": [
+        "ambiance",
+        "chaos",
+        "chrome",
+        "clouds",
+        "clouds_midnight",
+        "cobalt",
+        "crimson_editor",
+        "dawn",
+        "dreamweaver",
+        "eclipse",
+        "github",
+        "gruvbox",
+        "idbl",
+        "iplastic",
+        "kuroir",
+        "merbivore",
+        "merbivore_soft",
+        "mono_industrial",
+        "monokai",
+        "pastel_on_dark",
+        "solarized_dark",
+        "solarized_light",
+        "terminal",
+        "textmate",
+        "tomorrow",
+        "tomorrow_night",
+        "tomorrow_night_blue",
+        "tomorrow_night_bright",
+        "vibrant_ink",
+        "xcode"
+    ],
+    "list2": [
+        "UTC",
+        "GMT",
+        "PST"
+    ]
+}
