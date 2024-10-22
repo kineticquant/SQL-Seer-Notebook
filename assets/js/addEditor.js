@@ -17,6 +17,11 @@ document.getElementById('addEditor').addEventListener('click', () => {
     buttonBar.innerHTML = `
         <button id="runQuery${editorCount}" class="mt-5 mb-1 bg-blue-500 border border-black text-white px-4 rounded text-sm">Run</button>
         <button id="clearEditor${editorCount}" class="mt-5 mb-1 border border-black text-black px-4 rounded text-sm bg-transparent hover:bg-black hover:text-white">Clear</button>
+        <select id="connectionSelector" class="mt-5 mb-1 border border-black text-black px-1 rounded text-sm">
+            <option value="option1">Test SQLLite DB - PHX</option>
+            <option value="option2">Option 2</option>
+            <option value="option3">Option 3</option>
+        </select>
     `;
 
     // append new editor and buttons to the container div
