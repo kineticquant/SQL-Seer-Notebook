@@ -17,14 +17,3 @@ body {
     margin-top: 20px;
     margin-bottom: 10px;
 }
-
-.lightMode {
-    background-color: #f8f2e6;
-}
-.creamMode {
-    background-color: #f3e6c3; 
-}
-.darkMode {
-    background-color: #333;
-    color: #f8f2e6;
-}
