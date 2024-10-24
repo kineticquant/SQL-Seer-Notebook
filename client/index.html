@@ -27,6 +27,33 @@
         -->
     </p>
 
+        <div class="sticky top-0 z-10 w-full max-w-screen-md px-4 mx-auto lg:px-12">
+          <div class="relative overflow-hidden bg-gray shadow-md dark:bg-gray-800 md:rounded-lg">
+            <div class="flex flex-col items-center justify-between p-4 space-y-3 md:flex-row md:space-y-0 md:space-x-4">
+              <button id="addEditor" type="button"
+                      class="flex items-center justify-center w-full px-4 py-2 text-sm font-medium text-white rounded-lg md:w-auto bg-blue-500 hover:bg-blue-600 focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800">
+                <svg class="h-3.5 w-3.5 mr-2 -ml-1" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"
+                     aria-hidden="true">
+                  <path clip-rule="evenodd" fill-rule="evenodd"
+                        d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z"/>
+                </svg>
+                Add Editor
+              </button>
+      
+              <div class="inline-flex flex-col w-full rounded-md shadow-sm md:w-auto md:flex-row" role="group">
+                <button type="button"
+                        class="px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-t-lg md:rounded-tr-none md:rounded-l-lg hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-2 focus:ring-primary-700 focus:text-primary-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-primary-500 dark:focus:text-white">
+                  Manage Connections
+                </button>
+                <button type="button"
+                        class="px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-b-lg md:rounded-bl-none md:rounded-r-lg hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-2 focus:ring-primary-700 focus:text-primary-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-primary-500 dark:focus:text-white">
+                  History
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
     <div id="queryBar">
         <button id="runQuery" class="mt-5 mb-1 bg-blue-500 border border-black text-white px-4 rounded text-sm">Run</button>
         <button id="clearEditor" class="mt-5 mb-1 border border-black text-black px-4 rounded text-sm bg-transparent hover:bg-black hover:text-white">Clear</button>
@@ -35,7 +62,6 @@
             <option value="option2">Option 2</option>
             <option value="option3">Option 3</option>
         </select>
-        <button id="addEditor" class="mt-5 mb-1 bg-green-500 border border-black text-white px-4 rounded text-sm">Add Editor</button>
     </div>
     
     <div id="editor" class="resize-y overflow-auto border border-gray-300 rounded h-48 min-h-[100px]"></div>
