@@ -10,10 +10,24 @@
     <title>SQL Seer - Quick SQL Notebooks</title>
     <link rel="icon" href="./static/images/favicon.ico" type="image/x-icon">
 </head>
-<body class="text-gray-800 m-0 p-2 font-sans">
-    <h1>SQL Seer - Visualize multiple databases simultaneously</h1> 
+<body class="text-gray-800 m-0 font-sans">
+    <header class="bg-gray-100 py-1 w-full">
+        <nav class="container mx-auto flex items-center justify-between">
+            <!-- left aligned bc justify -->
+            <div class="flex items-center space-x-4">
+                <img src="./static/images/logo/logo.png" alt="Logo" class="h-8">
+                <h1 class="text-xl font-semibold text-gray-800">SQL Seer</h1>
+            </div>
+            
+            <!-- right aligned bc justify -->
+            <div>
+                <p class="text-sm text-gray-600">Quick insight into one or many databases using SQL-formatted notebooks</p>
+            </div>
+        </nav>
+    </header>
+    
     <p>
-        <br>
+        <br><br>
     </p>
 
         <div class="sticky top-0 z-10 w-full max-w-screen-md px-4 mx-auto lg:px-12">
@@ -104,7 +118,6 @@
 <!-- Connections Table -->
 <section class="bg-gray-50 dark:bg-gray-900 p-3 sm:p-5">
     <div class="mx-auto max-w-screen-xl px-4 lg:px-12">
-        <!-- Start coding here -->
         <div class="bg-white dark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden">
             <div class="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0 md:space-x-4 p-4">
                 <div class="w-full md:w-1/2">

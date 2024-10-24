@@ -10,24 +10,27 @@
     <title>SQL Seer - Quick SQL Notebooks</title>
     <link rel="icon" href="./static/images/favicon.ico" type="image/x-icon">
 </head>
-<body class="text-gray-800 m-0 p-2 font-sans">
-    <h1>SQL Seer - Visualize multiple databases simultaneously</h1> 
-    <p>
-        <br>
-        <!-- removing theme selection here for now / can add under user config
-        <div id="confBar" class="flex items-center">
-            <label for="themeSelector" class="block mb-1 text-sm text-gray-600">Theme:</label>
-            <select id="themeSelector" class="block text-sm mb-1 ml-1 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:ring-blue-300 focus:border-blue-500 transition duration-200">
-                <option value="lightMode">Light</option>
-                <option value="creamMode">Cream</option>
-                <option value="darkMode">Dark</option>
-            </select>
+<body class="text-gray-800 m-0 font-sans">
+    <header class="bg-gray-100 py-1 w-full">
+        <nav class="container mx-auto flex items-center justify-between">
+            <!-- left aligned bc justify -->
+            <div class="flex items-center space-x-4">
+                <img src="./static/images/logo/logo.png" alt="Logo" class="h-8">
+                <h1 class="text-xl font-semibold text-gray-800">SQL Seer</h1>
+            </div>
             
-        </div>
-        -->
+            <!-- right aligned bc justify -->
+            <div>
+                <p class="text-sm text-gray-600">Quick insight into one or many databases using SQL-formatted notebooks</p>
+            </div>
+        </nav>
+    </header>
+    
+    <p>
+        <br><br>
     </p>
 
-        <div class="sticky top-0 z-10 w-full max-w-screen-md px-4 mx-auto lg:px-12">
+        <div class="sticky top-0 z-10 w-full max-w-screen-lg px-4 mx-auto lg:px-12">
           <div class="relative overflow-hidden bg-gray shadow-md bg-gray-50 dark:bg-gray-800 md:rounded-lg">
             <div class="flex flex-col items-center justify-between p-4 space-y-3 md:flex-row md:space-y-0 md:space-x-4">
               <button id="addEditor" type="button"
@@ -48,6 +51,10 @@
                 <button type="button"
                   class="px-4 py-2 text-sm font-medium text-gray-900 bg-white border-gray-200 border-x md:border-x-0 md:border-t md:border-b hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-2 focus:ring-primary-700 focus:text-primary-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-primary-500 dark:focus:text-white">
             Logs
+          </button>
+          <button type="button"
+                  class="px-4 py-2 text-sm font-medium text-gray-900 bg-white border-gray-200 border-x md:border-x-0 md:border-t md:border-b hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-2 focus:ring-primary-700 focus:text-primary-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-primary-500 dark:focus:text-white">
+            Schema Browser
           </button>
           <button type="button"
                   class="px-4 py-2 text-sm font-medium text-gray-900 bg-white border-t border-gray-200 border-x md:border-x-0 md:border-l md:border-b hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-2 focus:ring-primary-700 focus:text-primary-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-primary-500 dark:focus:text-white">
