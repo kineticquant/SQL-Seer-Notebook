@@ -11,5 +11,10 @@ async def read_root(request: Request):
     return templates.TemplateResponse("index.html", {"request": request})
 
 
+@router.get("/connections", response_class=HTMLResponse)
+async def read_root(request: Request):
+    return templates.TemplateResponse("connections.html", {"request": request})
+
+
 #Post > Saving credentials
 # Add to file

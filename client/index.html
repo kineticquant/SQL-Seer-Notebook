@@ -28,7 +28,7 @@
     </p>
 
         <div class="sticky top-0 z-10 w-full max-w-screen-md px-4 mx-auto lg:px-12">
-          <div class="relative overflow-hidden bg-gray shadow-md bg-gray-0 dark:bg-gray-800 md:rounded-lg">
+          <div class="relative overflow-hidden bg-gray shadow-md bg-gray-50 dark:bg-gray-800 md:rounded-lg">
             <div class="flex flex-col items-center justify-between p-4 space-y-3 md:flex-row md:space-y-0 md:space-x-4">
               <button id="addEditor" type="button"
                       class="flex items-center justify-center w-full px-4 py-2 text-sm font-medium text-white rounded-lg md:w-auto bg-blue-500 hover:bg-blue-600 focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800">
@@ -41,27 +41,40 @@
               </button>
       
               <div class="inline-flex flex-col w-full rounded-md shadow-sm md:w-auto md:flex-row" role="group">
-                <button type="button"
+                <a href="/connections"><button type="button"
                         class="px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-t-lg md:rounded-tr-none md:rounded-l-lg hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-2 focus:ring-primary-700 focus:text-primary-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-primary-500 dark:focus:text-white">
                   Manage Connections
-                </button>
+                </button></a>
+                <button type="button"
+                  class="px-4 py-2 text-sm font-medium text-gray-900 bg-white border-gray-200 border-x md:border-x-0 md:border-t md:border-b hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-2 focus:ring-primary-700 focus:text-primary-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-primary-500 dark:focus:text-white">
+            Logs
+          </button>
+          <button type="button"
+                  class="px-4 py-2 text-sm font-medium text-gray-900 bg-white border-t border-gray-200 border-x md:border-x-0 md:border-l md:border-b hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-2 focus:ring-primary-700 focus:text-primary-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-primary-500 dark:focus:text-white">
+            History
+          </button>
+            <a href="https://github.com/kineticquant/sql-seer/" target="_blank">
                 <button type="button"
                         class="px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-b-lg md:rounded-bl-none md:rounded-r-lg hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-2 focus:ring-primary-700 focus:text-primary-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-primary-500 dark:focus:text-white">
-                  History
+                  <b>i</b>
                 </button>
+                </a>
               </div>
             </div>
           </div>
         </div>
 
+    Reminder: Add some dialogue box which pops up and says "add your first connection"
     <div id="queryBar" class="max-w-screen-xl mx-auto">
         <button id="runQuery" class="mt-5 mb-1 bg-blue-500 border border-black text-white px-4 rounded text-sm">Run</button>
         <button id="clearEditor" class="mt-5 mb-1 border border-black text-black px-4 rounded text-sm bg-transparent hover:bg-black hover:text-white">Clear</button>
         <select id="connectionSelector" class="mt-5 mb-1 border border-black text-black px-1 bg-transparent rounded text-sm">
-            <option value="option1">Test SQLLite DB - PHX</option>
+            <option value="option1">Test SQLite DB - PHX</option>
             <option value="option2">Option 2</option>
             <option value="option3">Option 3</option>
         </select>
+        <button class="mt-5 mb-1 border border-black text-black px-1 bg-transparent rounded text-sm">Save</button>
+        <button class="mt-5 mb-1 border border-black text-black px-1 bg-transparent rounded text-sm"><i>Add Export Result</i></button>
     </div>
     
     <div id="editor" class="resize-y overflow-auto border max-w-screen-xl mx-auto border-gray-300 rounded h-48 min-h-[100px]"></div>
@@ -112,15 +125,8 @@
      <!-- Uncomment if you wish to build and add as a package. Since this app is fastapi and doesn't need built in the FE, I moved htmx to be served in fastapi static files -->
     <!-- <script src="./node_modules/htmx.org/dist/htmx.min.js"></script> -->
     <script src="./static/js/htmx.min.js"></script>
+    <!-- flowbite not required on this index, but is for the connection modal. For fluidity, I included here -->
+    <script src="https://unpkg.com/flowbite@1.4.0/dist/flowbite.js"></script>
+ 
 </body>
-
-
-<!-- place into navbar or resize when adding editors -->
-<footer class="bg-gray-100 text-center text-sm py-2 absolute bottom-0 w-full">
-    <p>&copy; <span id="copyright-year"></span> SQL Seer.</p>
-    <script>
-        document.getElementById("copyright-year").textContent = new Date().getFullYear();
-      </script>
-</footer>
-  
 </html>
