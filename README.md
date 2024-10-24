@@ -1,5 +1,5 @@
 # sql-seer
-Interactive web-based SQL editor for various database types. Quickly run various SQL queries across different databases simultaneously.
+Interactive web-based SQL editor for various database types. Quickly run various SQL queries across different databases simultaneously in a notebook format.
 
 Built on HTMX and FastAPI.
 
