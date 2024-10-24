@@ -4,12 +4,12 @@ document.getElementById('addEditor').addEventListener('click', () => {
 
     // create  a container div for the new editor and the buttons
     const editorContainer = document.createElement('div');
-    editorContainer.classList.add('mt-4', 'mb-4');
+    editorContainer.classList.add('mt-4', 'mb-4', 'max-w-screen-xl', 'mx-auto');
 
     // create a new editor div with a unique ID
     const editorDiv = document.createElement('div');
     editorDiv.id = `editor${editorCount}`;
-    editorDiv.classList.add('editor-instance', 'resize-y', 'h-48', 'border', 'border-gray-300', 'rounded');
+    editorDiv.classList.add('editor-instance', 'resize-y', 'h-48', 'border', 'border-gray-300', 'rounded', 'max-w-screen-xl', 'mx-auto');
     editorDiv.style.height = '300px';
 
     const buttonBar = document.createElement('div');
@@ -17,7 +17,7 @@ document.getElementById('addEditor').addEventListener('click', () => {
     buttonBar.innerHTML = `
         <button id="runQuery${editorCount}" class="mt-5 mb-1 bg-blue-500 border border-black text-white px-4 rounded text-sm">Run</button>
         <button id="clearEditor${editorCount}" class="mt-5 mb-1 border border-black text-black px-4 rounded text-sm bg-transparent hover:bg-black hover:text-white">Clear</button>
-        <select id="connectionSelector" class="mt-5 mb-1 border border-black text-black px-1 rounded text-sm">
+        <select id="connectionSelector" class="mt-5 mb-1 border border-black bg-transparent text-black px-1 rounded text-sm">
             <option value="option1">Test SQLLite DB - PHX</option>
             <option value="option2">Option 2</option>
             <option value="option3">Option 3</option>

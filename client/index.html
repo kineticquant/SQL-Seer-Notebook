@@ -28,7 +28,7 @@
     </p>
 
         <div class="sticky top-0 z-10 w-full max-w-screen-md px-4 mx-auto lg:px-12">
-          <div class="relative overflow-hidden bg-gray shadow-md dark:bg-gray-800 md:rounded-lg">
+          <div class="relative overflow-hidden bg-gray shadow-md bg-gray-0 dark:bg-gray-800 md:rounded-lg">
             <div class="flex flex-col items-center justify-between p-4 space-y-3 md:flex-row md:space-y-0 md:space-x-4">
               <button id="addEditor" type="button"
                       class="flex items-center justify-center w-full px-4 py-2 text-sm font-medium text-white rounded-lg md:w-auto bg-blue-500 hover:bg-blue-600 focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800">
@@ -54,7 +54,7 @@
           </div>
         </div>
 
-    <div id="queryBar">
+    <div id="queryBar" class="max-w-screen-xl mx-auto">
         <button id="runQuery" class="mt-5 mb-1 bg-blue-500 border border-black text-white px-4 rounded text-sm">Run</button>
         <button id="clearEditor" class="mt-5 mb-1 border border-black text-black px-4 rounded text-sm bg-transparent hover:bg-black hover:text-white">Clear</button>
         <select id="connectionSelector" class="mt-5 mb-1 border border-black text-black px-1 bg-transparent rounded text-sm">
@@ -64,7 +64,7 @@
         </select>
     </div>
     
-    <div id="editor" class="resize-y overflow-auto border border-gray-300 rounded h-48 min-h-[100px]"></div>
+    <div id="editor" class="resize-y overflow-auto border max-w-screen-xl mx-auto border-gray-300 rounded h-48 min-h-[100px]"></div>
     
     <div id="result"></div>
     <!-- getting the editor from cdn -->
