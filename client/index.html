@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
     <!-- Local CSS load -->
     <link rel="stylesheet" href="./static/css/styles.css">
-    <title>SQL Seer</title>
+    <title>SQL Seer - Quick SQL Notebooks</title>
+    <link rel="icon" href="./static/images/favicon.ico" type="image/x-icon">
 </head>
 <body class="text-gray-800 m-0 p-2 font-sans">
     <h1>SQL Seer - Visualize multiple databases simultaneously</h1> 
@@ -29,7 +30,7 @@
     <div id="queryBar">
         <button id="runQuery" class="mt-5 mb-1 bg-blue-500 border border-black text-white px-4 rounded text-sm">Run</button>
         <button id="clearEditor" class="mt-5 mb-1 border border-black text-black px-4 rounded text-sm bg-transparent hover:bg-black hover:text-white">Clear</button>
-        <select id="connectionSelector" class="mt-5 mb-1 border border-black text-black px-1 rounded text-sm">
+        <select id="connectionSelector" class="mt-5 mb-1 border border-black text-black px-1 bg-transparent rounded text-sm">
             <option value="option1">Test SQLLite DB - PHX</option>
             <option value="option2">Option 2</option>
             <option value="option3">Option 3</option>
@@ -40,9 +41,9 @@
     <div id="editor" class="resize-y overflow-auto border border-gray-300 rounded h-48 min-h-[100px]"></div>
     
     <div id="result"></div>
-    <!-- getting the Ace editor to be used - no need to reinvent the wheel -->
+    <!-- getting the editor from cdn -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js"></script>
-    <!-- custom editor functionality -->
+    <!-- adding editors -->
     <script src="./static/js/addEditor.js"></script>
     <script>
         var editor = ace.edit("editor");
