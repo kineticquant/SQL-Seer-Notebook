@@ -15,6 +15,7 @@ main.py
 Monolithic application
 
 HOW TO RUN? MAKE IT FLASK? FASTAPI?
+How to install dependencies
 
 ### Encryption
 

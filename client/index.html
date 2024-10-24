@@ -34,7 +34,7 @@
             <option value="option2">Option 2</option>
             <option value="option3">Option 3</option>
         </select>
-        <button id="addEditor" class="bg-green-500 border border-black text-white px-4 rounded mt-5 text-sm">Add Editor</button>
+        <button id="addEditor" class="mt-5 mb-1 bg-green-500 border border-black text-white px-4 rounded text-sm">Add Editor</button>
     </div>
     
     <div id="editor" class="resize-y overflow-auto border border-gray-300 rounded h-48 min-h-[100px]"></div>
@@ -43,7 +43,7 @@
     <!-- getting the Ace editor to be used - no need to reinvent the wheel -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js"></script>
     <!-- custom editor functionality -->
-     <script src="assets/js/addEditor.js"></script>
+    <script src="./static/js/addEditor.js"></script>
     <script>
         var editor = ace.edit("editor");
         
@@ -81,8 +81,10 @@
         });
         
     </script>
-
-    
+    <!-- htmx -->
+     <!-- Uncomment if you wish to build and add as a package. Since this app is fastapi and doesn't need built in the FE, I moved htmx to be served in fastapi static files -->
+    <!-- <script src="./node_modules/htmx.org/dist/htmx.min.js"></script> -->
+    <script src="./static/js/htmx.min.js"></script>
 </body>
 
 

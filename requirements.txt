@@ -1,3 +1,13 @@
 python-dotenv
+redis
+# tested with redis-5.1.1
+# redis will come with async-timeout
+# if this changes in the future, async-time-out may need manually installed
+# async-timeout-4.0.3
+cryptography
 #pandas
-#redis?
+
+fastapi
+uvicorn  # for running the FastAPI app
+jinja2   # for templates if needed
+gunicorn # Serving for production

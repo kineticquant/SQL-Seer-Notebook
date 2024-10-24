@@ -31,9 +31,12 @@
         "vibrant_ink",
         "xcode"
     ],
-    "list2": [
+    "l2": [
         "UTC",
         "GMT",
-        "PST"
+        "EST",
+        "MST",
+        "PST",
+        "else"
     ]
 }
