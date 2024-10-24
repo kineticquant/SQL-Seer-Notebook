@@ -16,7 +16,7 @@ Comes with Redis + Caching rules
 
 
 ### Configuring connections
-Connections in connections.ini
+Connections are created in the UI and automatically stored within the connections.ini file. The file is auto-created the first time the application starts up. Connection details will remain stored there and can be updated or deleted in the UI automatically. Connection passwords are encrypted upon being entered into the form, but aren't stored in the connections.ini file, and instead are saved in encrypted form in the Redis cache.
 
 
 HOW TO RUN? MAKE IT FLASK? FASTAPI?
@@ -29,3 +29,8 @@ How to install dependencies
 ### Ace editor
 Where I got it
 
+
+
+
+In accordance wih their attribution requirements, the favicon was designed using resources from Flaticon.com
+ 
