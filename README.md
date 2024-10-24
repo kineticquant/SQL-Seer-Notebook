@@ -1,6 +1,12 @@
 # sql-seer
 Interactive web-based SQL editor for various database types. Quickly run various SQL queries across different databases simultaneously.
 
+Built on HTMX and FastAPI.
+
+This web application can be run anywhere you can run Python.
+
+[Docker]
+
 
 ### Supported Databases
 
