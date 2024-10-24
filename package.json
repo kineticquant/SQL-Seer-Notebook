@@ -1,5 +1,21 @@
 {
+  "name": "sql-seer",
+  "version": "1.0.0",
+  "description": "Interactive web-based SQL editor for various database types. Quickly run various SQL queries across different databases simultaneously.",
   "dependencies": {
     "htmx.org": "^1.9.12"
-  }
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kineticquant/sql-seer.git"
+  },
+  "author": "Michael Mooney",
+  "bugs": {
+    "url": "https://github.com/kineticquant/sql-seer/issues"
+  },
+  "homepage": "https://github.com/kineticquant/sql-seer#readme"
 }
