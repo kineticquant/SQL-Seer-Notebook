@@ -6,13 +6,12 @@ Interactive web-based SQL editor for various database types. Quickly run various
 
 
 
-Comes with Redis
-
-Config.json
+Comes with Redis + Caching rules
 
 
-main.py
-Monolithic application
+### Configuring connections
+Connections in connections.ini
+
 
 HOW TO RUN? MAKE IT FLASK? FASTAPI?
 How to install dependencies
@@ -22,5 +21,5 @@ How to install dependencies
 
 
 ### Ace editor
-
+Where I got it
 
