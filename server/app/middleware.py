@@ -1,6 +1,8 @@
 import os
 import logging
 from pathlib import Path
+from sqlalchemy.orm import Session
+from .models import Conn
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -24,5 +26,26 @@ def file_config():
     #     logger.info("Created connections.ini file.")
     # connections_fi = os.path.join(conf_dir, 'connections.ini')
     # return connections_fi
-    
+ 
+def connections_config(db: Session):
+    sqlite = db.query(Conn).filter(Conn.name == "System DB").first()
+      
+    if not sqlite:
+        new_connection = Conn(
+            name="System DB",
+            type="sqlite",
+            host="localhost",
+            port=None,
+            sid=None,
+            svc_name=None,
+            alt_conf=None,
+            description="System Database",
+            password=None
+        )
+        db.add(new_connection)
+        logger.info("System database connection added.")
+        db.commit()
+    else:
+        logger.info("System database configuration found.")
+        
 # end startup proc
