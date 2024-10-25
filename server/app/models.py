@@ -1,6 +1,9 @@
 from sqlalchemy import Column, Integer, String
 from .database import Base
 
+from pydantic import BaseModel
+
+# for initialization
 class Conn(Base):
     __tablename__ = "connections"
 
@@ -14,3 +17,14 @@ class Conn(Base):
     alt_conf = Column(String, index=True)
     description = Column(String, index=True)
     password = Column(String, index=True)
+# for post request
+class ConnCreate(BaseModel):
+    name: str
+    type: str
+    host: str
+    port: int
+    sid: str
+    svc_name: str
+    alt_conf: str
+    description: str
+    password: str
