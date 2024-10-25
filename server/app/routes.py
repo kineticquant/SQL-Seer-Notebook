@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Request
 from fastapi.responses import HTMLResponse
-from fastapi import HTTPException
+from fastapi import HTTPException, Depends
 from fastapi.templating import Jinja2Templates
 from .middleware import conf_dir
 
@@ -21,19 +21,6 @@ async def read_root(request: Request):
 @router.get("/connections", response_class=HTMLResponse)
 async def read_root(request: Request):
     return templates.TemplateResponse("connections.html", {"request": request})
-
-# No longer passing themes to the API
-# @router.get("/themes")
-# async def read_themes():
-#     try:
-#         with open(cfg_file, "r") as cfg:
-#             config = json.load(cfg)
-#         return config.get("themes", []) 
-
-#     except FileNotFoundError:
-#         raise HTTPException(status_code=404, detail="Configuration JSON file not found.")
-#     except json.JSONDecodeError:
-#         raise HTTPException(status_code=500, detail="Error reading Configuration JSON file.")
 
 #Post > Saving credentials
 # Add to file
