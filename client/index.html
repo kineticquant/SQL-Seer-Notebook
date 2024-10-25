@@ -13,15 +13,16 @@
 <body class="text-gray-800 m-0 font-sans">
     <header class="bg-gray-100 py-1 w-full">
         <nav class="container mx-auto flex items-center justify-between">
-            <!-- left aligned bc justify -->
+            <!-- lt -->
             <div class="flex items-center space-x-4">
                 <img src="./static/images/logo/logo.png" alt="Logo" class="h-8">
                 <h1 class="text-xl font-semibold text-gray-800">SQL Seer</h1>
             </div>
             
-            <!-- right aligned bc justify -->
+            <!-- rt -->
             <div>
-                <p class="text-sm text-gray-600">Quick insight into one or many databases using SQL-formatted notebooks</p>
+                <p class="text-sm text-gray-600">Quick insight into one or many databases using SQL-formatted notebooks</p>              
+                
             </div>
         </nav>
     </header>
@@ -44,22 +45,32 @@
               </button>
       
               <div class="inline-flex flex-col w-full rounded-md shadow-sm md:w-auto md:flex-row" role="group">
+
                 <a href="/connections"><button type="button"
                         class="px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-t-lg md:rounded-tr-none md:rounded-l-lg hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-2 focus:ring-primary-700 focus:text-primary-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-primary-500 dark:focus:text-white">
                   Manage Connections
                 </button></a>
-                <button type="button"
-                  class="px-4 py-2 text-sm font-medium text-gray-900 bg-white border-gray-200 border-x md:border-x-0 md:border-t md:border-b hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-2 focus:ring-primary-700 focus:text-primary-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-primary-500 dark:focus:text-white">
-            Logs
-          </button>
-          <button type="button"
-                  class="px-4 py-2 text-sm font-medium text-gray-900 bg-white border-gray-200 border-x md:border-x-0 md:border-t md:border-b hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-2 focus:ring-primary-700 focus:text-primary-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-primary-500 dark:focus:text-white">
-            Schema Browser
-          </button>
-          <button type="button"
+
+                <button data-modal-target="themeModal" data-modal-toggle="themeModal" type="button"
                   class="px-4 py-2 text-sm font-medium text-gray-900 bg-white border-t border-gray-200 border-x md:border-x-0 md:border-l md:border-b hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-2 focus:ring-primary-700 focus:text-primary-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-primary-500 dark:focus:text-white">
-            History
-          </button>
+                    Edit Theme
+                </button>
+
+                <button type="button"
+                  class="px-4 py-2 text-sm font-medium text-gray-900 bg-white border-t border-gray-200 border-x md:border-x-0 md:border-l md:border-b hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-2 focus:ring-primary-700 focus:text-primary-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-primary-500 dark:focus:text-white">
+                    Logs
+                </button>
+                <button type="button"
+                        class="px-4 py-2 text-sm font-medium text-gray-900 bg-white border-t border-gray-200 border-x md:border-x-0 md:border-l md:border-b hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-2 focus:ring-primary-700 focus:text-primary-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-primary-500 dark:focus:text-white">
+                    Schema Browser
+                </button>
+                <button type="button"
+                        class="px-4 py-2 text-sm font-medium text-gray-900 bg-white border-t border-gray-200 border-x md:border-x-0 md:border-l md:border-b hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-2 focus:ring-primary-700 focus:text-primary-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-primary-500 dark:focus:text-white">
+                    History
+                </button>
+
+
+
             <a href="https://github.com/kineticquant/sql-seer/" target="_blank">
                 <button type="button"
                         class="px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-b-lg md:rounded-bl-none md:rounded-r-lg hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-2 focus:ring-primary-700 focus:text-primary-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-primary-500 dark:focus:text-white">
@@ -71,7 +82,6 @@
           </div>
         </div>
 
-    Reminder: Add some dialogue box which pops up and says "add your first connection"
     <div id="queryBar" class="max-w-screen-xl mx-auto">
         <button id="runQuery" class="mt-5 mb-1 bg-blue-500 border border-black text-white px-4 rounded text-sm">Run</button>
         <button id="clearEditor" class="mt-5 mb-1 border border-black text-black px-4 rounded text-sm bg-transparent hover:bg-black hover:text-white">Clear</button>
@@ -87,10 +97,121 @@
     <div id="editor" class="resize-y overflow-auto border max-w-screen-xl mx-auto border-gray-300 rounded h-48 min-h-[100px]"></div>
     
     <div id="result"></div>
-    <!-- getting the editor from cdn -->
+
+
+
+    <!-- editor selector modal -->
+
+    <div id="themeModal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+        <div class="relative p-4 w-full max-w-md max-h-full">
+            <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
+                        Editor Themes
+                    </h3>
+                    <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm h-8 w-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="themeModal">
+                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                        </svg>
+                        <span class="sr-only">Close</span>
+                    </button>
+                </div>
+                <!-- Mmdal -->
+                <form>
+                    <div class="p-4 md:p-5">
+                        <p class="text-gray-500 dark:text-gray-400 mb-4">Select your desired theme:</p>
+                        <ul class="space-y-4 mb-4">
+                            <li>
+                                <input type="radio" class="hidden peer" name="theme" id="ambiance" onchange="changeTheme('ace/theme/ambiance');" required />
+                                <label for="ambiance" class="inline-flex items-center justify-between w-full p-5 text-gray-900 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-500 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-900 hover:bg-gray-100 dark:text-white dark:bg-gray-600 dark:hover:bg-gray-500">                           
+                                    <div class="block">
+                                        <div class="w-full text-lg font-semibold">ambiance</div>
+                                        <div class="w-full text-gray-500 dark:text-gray-400"><i>dark</i></div>
+                                    </div>
+                                    <svg class="w-4 h-4 ms-3 rtl:rotate-180 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/></svg>
+                                </label>
+                            </li>
+                            <li>
+                                <input type="radio" name="theme" id="chaos" onchange="changeTheme('ace/theme/chaos');" class="hidden peer">
+                                <label for="chaos" class="inline-flex items-center justify-between w-full p-5 text-gray-900 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-500 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-900 hover:bg-gray-100 dark:text-white dark:bg-gray-600 dark:hover:bg-gray-500">
+                                    <div class="block">
+                                        <div class="w-full text-lg font-semibold">chaos</div>
+                                        <div class="w-full text-gray-500 dark:text-gray-400"><i>light</i></div>
+                                    </div>
+                                    <svg class="w-4 h-4 ms-3 rtl:rotate-180 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/></svg>
+                                </label>
+                            </li>
+                            <li>
+                                <input type="radio" name="theme" id="chrome" onchange="changeTheme('ace/theme/chrome');" class="hidden peer">
+                                <label for="chrome" class="inline-flex items-center justify-between w-full p-5 text-gray-900 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-500 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-900 hover:bg-gray-100 dark:text-white dark:bg-gray-600 dark:hover:bg-gray-500">
+                                    <div class="block">
+                                        <div class="w-full text-lg font-semibold">chrome</div>
+                                        <div class="w-full text-gray-500 dark:text-gray-400"><i>light</i></div>
+                                    </div>
+                                    <svg class="w-4 h-4 ms-3 rtl:rotate-180 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/></svg>
+                                </label>
+                            </li>
+                            <li>
+                                <input type="radio" name="theme" id="clouds" onchange="changeTheme('ace/theme/clouds');" class="hidden peer">
+                                <label for="clouds" class="inline-flex items-center justify-between w-full p-5 text-gray-900 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-500 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-900 hover:bg-gray-100 dark:text-white dark:bg-gray-600 dark:hover:bg-gray-500">
+                                    <div class="block">
+                                        <div class="w-full text-lg font-semibold">clouds</div>
+                                        <div class="w-full text-gray-500 dark:text-gray-400"><i>default</i></div>
+                                    </div>
+                                    <svg class="w-4 h-4 ms-3 rtl:rotate-180 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/></svg>
+                                </label>
+                            </li>
+                            <li>
+                                <input type="radio" name="theme" id="xcode" onchange="changeTheme('ace/theme/xcode');" class="hidden peer">
+                                <label for="xcode" class="inline-flex items-center justify-between w-full p-5 text-gray-900 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-500 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-900 hover:bg-gray-100 dark:text-white dark:bg-gray-600 dark:hover:bg-gray-500">
+                                    <div class="block">
+                                        <div class="w-full text-lg font-semibold">xcode</div>
+                                        <div class="w-full text-gray-500 dark:text-gray-400"><i>light</i></div>
+                                    </div>
+                                    <svg class="w-4 h-4 ms-3 rtl:rotate-180 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/></svg>
+                                </label>
+                            </li>
+                            <li>
+                                <input type="radio" name="theme" id="terminal" onchange="changeTheme('ace/theme/terminal')" class="hidden peer">
+                                <label for="terminal" class="inline-flex items-center justify-between w-full p-5 text-gray-900 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-500 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-900 hover:bg-gray-100 dark:text-white dark:bg-gray-600 dark:hover:bg-gray-500">
+                                    <div class="block">
+                                        <div class="w-full text-lg font-semibold">terminal</div>
+                                        <div class="w-full text-gray-500 dark:text-gray-400"><i>dark</i></div>
+                                    </div>
+                                    <svg class="w-4 h-4 ms-3 rtl:rotate-180 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/></svg>
+                                </label>
+                            </li>
+                            <li>
+                                <input type="radio" name="theme" id="merbivore" onchange="changeTheme('ace/theme/merbivore')" class="hidden peer">
+                                <label for="merbivore" class="inline-flex items-center justify-between w-full p-5 text-gray-900 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-500 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-900 hover:bg-gray-100 dark:text-white dark:bg-gray-600 dark:hover:bg-gray-500">
+                                    <div class="block">
+                                        <div class="w-full text-lg font-semibold">merbivore</div>
+                                        <div class="w-full text-gray-500 dark:text-gray-400"><i>dark</i></div>
+                                    </div>
+                                    <svg class="w-4 h-4 ms-3 rtl:rotate-180 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/></svg>
+                                </label>
+                            </li>
+                            <li>
+                                <input type="radio" name="theme" id="monokai" onchange="changeTheme('ace/theme/monokai')" class="hidden peer">
+                                <label for="monokai" class="inline-flex items-center justify-between w-full p-5 text-gray-900 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-500 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-900 hover:bg-gray-100 dark:text-white dark:bg-gray-600 dark:hover:bg-gray-500">
+                                    <div class="block">
+                                        <div class="w-full text-lg font-semibold">monokai</div>
+                                        <div class="w-full text-gray-500 dark:text-gray-400"><i>dark</i></div>
+                                    </div>
+                                    <svg class="w-4 h-4 ms-3 rtl:rotate-180 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/></svg>
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- end editor selector modal -->
+
+    <!-- ace -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js"></script>
-    <!-- adding editors -->
-    <script src="./static/js/addEditor.js"></script>
     <script>
         var editor = ace.edit("editor");
         
@@ -101,7 +222,17 @@
             editor.resize();
         });
 
-        editor.setValue("select 'x' from dual");
+        editor.setValue("select ");
+
+        // default is clouds
+        var themePreference = "ace/theme/clouds";
+
+        function changeTheme(theme) {
+            editor.setTheme(theme);
+            themePreference = theme;
+            console.log(themePreference);
+        }
+
 
         document.getElementById('runQuery').addEventListener('click', () => {
             const query = editor.getValue();
@@ -126,13 +257,72 @@
             //editor.session.clear();
             editor.setValue('', '');
         });
+
+
+        
+        document.getElementById('addEditor').addEventListener('click', () => {
+            // get the number of editors, increment for unique ID
+            const editorCount = document.querySelectorAll('.editor-instance').length + 1;
+
+            // create  a container div for the new editor and the buttons
+            const editorContainer = document.createElement('div');
+            editorContainer.classList.add('mt-4', 'mb-4', 'max-w-screen-xl', 'mx-auto');
+
+            // create a new editor div with a unique ID
+            const editorDiv = document.createElement('div');
+            editorDiv.id = `editor${editorCount}`;
+            editorDiv.classList.add('editor-instance', 'resize-y', 'h-48', 'border', 'border-gray-300', 'rounded', 'max-w-screen-xl', 'mx-auto');
+            editorDiv.style.height = '300px';
+
+            const buttonBar = document.createElement('div');
+            buttonBar.classList.add('flex', 'space-x-1');
+            buttonBar.innerHTML = `
+                <button id="runQuery${editorCount}" class="mt-5 mb-1 bg-blue-500 border border-black text-white px-4 rounded text-sm">Run</button>
+                <button id="clearEditor${editorCount}" class="mt-5 mb-1 border border-black text-black px-4 rounded text-sm bg-transparent hover:bg-black hover:text-white">Clear</button>
+                <select id="connectionSelector" class="mt-5 mb-1 border border-black bg-transparent text-black px-1 rounded text-sm">
+                    <option value="option1">Test SQLLite DB - PHX</option>
+                    <option value="option2">Option 2</option>
+                    <option value="option3">Option 3</option>
+                </select>
+            `;
+
+            // append new editor and buttons to the container div
+            editorContainer.appendChild(buttonBar);
+            editorContainer.appendChild(editorDiv);
+
+            // append entire container to the body or a specific section
+            document.body.appendChild(editorContainer);
+
+            // initialize editor for the new editor div
+            const dynamicEditorWin = ace.edit(`editor${editorCount}`);
+            dynamicEditorWin.session.setMode("ace/mode/sql");
+            dynamicEditorWin.setTheme(themePreference);
+
+            // add functionality for the new Run button
+            document.getElementById(`runQuery${editorCount}`).addEventListener('click', () => {
+                const query = dynamicEditorWin.getValue();
+                // Handle the query logic for the new editor
+                console.log(`Running query from editor${editorCount}:`, query);
+            });
+
+            // add functionality for the new Clear button
+            document.getElementById(`clearEditor${editorCount}`).addEventListener('click', () => {
+                dynamicEditorWin.setValue('', '');
+            });
+
+            // resize where applicable
+            editorDiv.addEventListener('mousemove', () => {
+                dynamicEditorWin.resize();
+            });
+        });
+
         
     </script>
+    <script src="./static/js/theme.js"></script>
     <!-- htmx -->
-     <!-- Uncomment if you wish to build and add as a package. Since this app is fastapi and doesn't need built in the FE, I moved htmx to be served in fastapi static files -->
+     <!-- Uncomment to build and add as a package. Since this app is fastapi and doesn't need built in the FE, I moved htmx to be served in fastapi static files -->
     <!-- <script src="./node_modules/htmx.org/dist/htmx.min.js"></script> -->
     <script src="./static/js/htmx.min.js"></script>
-    <!-- flowbite not required on this index, but is for the connection modal. For fluidity, I included here -->
     <script src="https://unpkg.com/flowbite@1.4.0/dist/flowbite.js"></script>
  
 </body>
