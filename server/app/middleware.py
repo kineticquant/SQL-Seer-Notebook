@@ -17,6 +17,7 @@ def file_config():
             pass
         logger.info("Setup initialized for application.")
         logger.info("Created .env file.")
+    # placed in sqlite instead of connections file
     # if not os.path.isfile(connections_fi_exists):
     #     with open(connections_fi_exists, 'w') as con_ini:
     #         pass
