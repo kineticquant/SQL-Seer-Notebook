@@ -5,5 +5,7 @@ pandas
 fastapi
 uvicorn
 jinja2
+sqlalchemy 
+sqlite
 # Serving for production
 gunicorn
