@@ -6,16 +6,16 @@
     <!-- Tailwind CSS load -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
     <!-- Local CSS load -->
-    <link rel="stylesheet" href="./static/css/styles.css">
+    <link rel="stylesheet" href="/static/css/styles.css">
     <title>SQL Seer - Quick SQL Notebooks</title>
-    <link rel="icon" href="./static/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/static/images/favicon.ico" type="image/x-icon">
 </head>
 <body class="text-gray-800 m-0 font-sans">
     <header class="bg-gray-100 py-1 w-full">
         <nav class="container mx-auto flex items-center justify-between">
             <!-- lt -->
             <div class="flex items-center space-x-4">
-                <img src="./static/images/logo/logo.png" alt="Logo" class="h-8">
+                <img src="/static/images/logo/logo.png" alt="Logo" class="h-8">
                 <h1 class="text-xl font-semibold text-gray-800">SQL Seer</h1>
             </div>
             
@@ -213,26 +213,10 @@
     <!-- ace -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js"></script>
     <script>
-        var editor = ace.edit("editor");
         
-        editor.session.setMode("ace/mode/sql");
-        editor.setTheme("ace/theme/clouds");
 
-        window.addEventListener('resize', function() {
-            editor.resize();
-        });
-
-        editor.setValue("select ");
-
-        // default is clouds
-        var themePreference = "ace/theme/clouds";
-
-        function changeTheme(theme) {
-            editor.setTheme(theme);
-            themePreference = theme;
-            console.log(themePreference);
-        }
-
+        //editor.setValue("select ");
+       
 
         document.getElementById('runQuery').addEventListener('click', () => {
             const query = editor.getValue();
@@ -258,70 +242,17 @@
             editor.setValue('', '');
         });
 
-
         
-        document.getElementById('addEditor').addEventListener('click', () => {
-            // get the number of editors, increment for unique ID
-            const editorCount = document.querySelectorAll('.editor-instance').length + 1;
-
-            // create  a container div for the new editor and the buttons
-            const editorContainer = document.createElement('div');
-            editorContainer.classList.add('mt-4', 'mb-4', 'max-w-screen-xl', 'mx-auto');
-
-            // create a new editor div with a unique ID
-            const editorDiv = document.createElement('div');
-            editorDiv.id = `editor${editorCount}`;
-            editorDiv.classList.add('editor-instance', 'resize-y', 'h-48', 'border', 'border-gray-300', 'rounded', 'max-w-screen-xl', 'mx-auto');
-            editorDiv.style.height = '300px';
-
-            const buttonBar = document.createElement('div');
-            buttonBar.classList.add('flex', 'space-x-1');
-            buttonBar.innerHTML = `
-                <button id="runQuery${editorCount}" class="mt-5 mb-1 bg-blue-500 border border-black text-white px-4 rounded text-sm">Run</button>
-                <button id="clearEditor${editorCount}" class="mt-5 mb-1 border border-black text-black px-4 rounded text-sm bg-transparent hover:bg-black hover:text-white">Clear</button>
-                <select id="connectionSelector" class="mt-5 mb-1 border border-black bg-transparent text-black px-1 rounded text-sm">
-                    <option value="option1">Test SQLLite DB - PHX</option>
-                    <option value="option2">Option 2</option>
-                    <option value="option3">Option 3</option>
-                </select>
-            `;
-
-            // append new editor and buttons to the container div
-            editorContainer.appendChild(buttonBar);
-            editorContainer.appendChild(editorDiv);
-
-            // append entire container to the body or a specific section
-            document.body.appendChild(editorContainer);
-
-            // initialize editor for the new editor div
-            const dynamicEditorWin = ace.edit(`editor${editorCount}`);
-            dynamicEditorWin.session.setMode("ace/mode/sql");
-            dynamicEditorWin.setTheme(themePreference);
-
-            // add functionality for the new Run button
-            document.getElementById(`runQuery${editorCount}`).addEventListener('click', () => {
-                const query = dynamicEditorWin.getValue();
-                // Handle the query logic for the new editor
-                console.log(`Running query from editor${editorCount}:`, query);
-            });
-
-            // add functionality for the new Clear button
-            document.getElementById(`clearEditor${editorCount}`).addEventListener('click', () => {
-                dynamicEditorWin.setValue('', '');
-            });
-
-            // resize where applicable
-            editorDiv.addEventListener('mousemove', () => {
-                dynamicEditorWin.resize();
-            });
-        });
-
+        
         
     </script>
+    <script src="/static/js/app.js"></script>
+    <script src="/static/js/theme.js"></script>
+    <script src="/static/js/cascEditors.js"></script>
     <!-- htmx -->
      <!-- Uncomment to build and add as a package. Since this app is fastapi and doesn't need built in the FE, I moved htmx to be served in fastapi static files -->
     <!-- <script src="./node_modules/htmx.org/dist/htmx.min.js"></script> -->
-    <script src="./static/js/htmx.min.js"></script>
+    <script src="/static/js/htmx.min.js"></script>
     <script src="https://unpkg.com/flowbite@1.4.0/dist/flowbite.js"></script>
  
 </body>
