@@ -32,12 +32,12 @@
         "vibrant_ink",
         "xcode"
     ],
-    "l2": [
+    "TZ": [
         "UTC",
         "GMT",
         "EST",
         "MST",
         "PST",
-        "else"
+        "OTHERS"
     ]
 }

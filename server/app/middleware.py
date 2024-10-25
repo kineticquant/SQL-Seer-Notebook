@@ -1,15 +1,18 @@
 import os
 import logging
+from pathlib import Path
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 # startup proc
-current_dir = os.getcwd()
+current_dir = Path(__file__).resolve().parent
+conf_dir = os.path.join(current_dir,'config')
+
 
 def file_config():
-    env_fi_exists = os.path.join(current_dir, '.env')
-    connections_fi_exists = os.path.join(current_dir, 'connections.ini')
+    env_fi_exists = os.path.join(conf_dir, '.env')
+    connections_fi_exists = os.path.join(conf_dir, 'connections.ini')
     if not os.path.isfile(env_fi_exists):
         with open(env_fi_exists, 'w') as env:
             pass
@@ -19,7 +22,7 @@ def file_config():
         with open(connections_fi_exists, 'w') as con_ini:
             pass
         logger.info("Created connections.ini file.")
-    connections_fi = os.path.join(current_dir, 'connections.ini')
+    connections_fi = os.path.join(conf_dir, 'connections.ini')
     return connections_fi
         
 def get_connections(connections_fi):
