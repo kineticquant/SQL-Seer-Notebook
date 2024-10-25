@@ -171,3 +171,6 @@ connections.ini
 WORKING_LIST.txt
 TAILWIND.txt
 DOCUMENTATION.txt
+
+# System database
+*.db
