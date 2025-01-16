@@ -13,6 +13,7 @@ Supports Oracle, Postgres, SQL Server, SQLite (comes included, or add your own)
 
 TBD: [![HTMX](https://img.shields.io/badge/HTMX-36C?logo=htmx&logoColor=fff)](#)
 
+Ships with its own database so you can jump to adding data and querying as well if desired!
 
 
 Built on HTMX and FastAPI.
