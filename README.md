@@ -9,7 +9,7 @@ This utility also ships with its own database so you can jump to adding data and
 
 
 ![In Development](https://img.shields.io/badge/status-In%20Development-yellow)
-### Open Development
+### Open Development Tasks
 - Finalize query delivery logic against target databases
 - Implement redis for caching of historical queries
 - Docker deployment  
