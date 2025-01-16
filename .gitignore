@@ -174,3 +174,6 @@ DOCUMENTATION.txt
 
 # System database
 *.db
+
+# github screenshots in readme
+sql_seer_preview*
