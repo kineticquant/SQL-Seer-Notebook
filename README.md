@@ -13,6 +13,7 @@ Supports Oracle, Postgres, SQL Server, SQLite (comes included, or add your own)
 
 TBD: [![HTMX](https://img.shields.io/badge/HTMX-36C?logo=htmx&logoColor=fff)](#)
 
+Ships with its own database so you can jump to adding data and querying as well if desired!
 
 
 Built on HTMX and FastAPI.
@@ -42,7 +43,7 @@ How to install dependencies
 
 ![sql_seer_preview](https://github.com/user-attachments/assets/efb6eb39-5867-4d7f-a197-d18a62252d11)
 ![sql_seer_preview_add_connection](https://github.com/user-attachments/assets/043947a4-2b98-4289-b623-eb2d5fda7cac)
-
+![sql_seer_preview_create_connection_details](https://github.com/user-attachments/assets/7f1556d3-4dfb-4e56-b1cd-b1f5ed6f5e35)
 
 ### Ace editor
 Where I got it
