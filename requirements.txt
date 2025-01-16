@@ -1,5 +1,7 @@
 python-dotenv
-redis
+# will return to store history / results, other details in cache
+# but won't be first implementation
+# redis
 cryptography
 pandas
 fastapi
@@ -7,5 +9,15 @@ uvicorn
 jinja2
 sqlalchemy 
 sqlite
-# Serving for production
+# removed postgres, oracle, sql server libs
+# going to move forward with using sqlalchemy on all directly
+# so i dont need logic to swap based on current editor
+# postgres
+#psycopg2-binary
+# oracle
+#cx_Oracle
+# sql server
+#pyodbc
+
+# Serving for prod
 gunicorn
