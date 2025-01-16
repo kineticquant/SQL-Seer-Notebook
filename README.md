@@ -42,7 +42,7 @@ How to install dependencies
 
 ![sql_seer_preview](https://github.com/user-attachments/assets/efb6eb39-5867-4d7f-a197-d18a62252d11)
 ![sql_seer_preview_add_connection](https://github.com/user-attachments/assets/043947a4-2b98-4289-b623-eb2d5fda7cac)
-
+![sql_seer_preview_create_connection_details](https://github.com/user-attachments/assets/7f1556d3-4dfb-4e56-b1cd-b1f5ed6f5e35)
 
 ### Ace editor
 Where I got it
