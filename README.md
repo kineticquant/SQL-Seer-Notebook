@@ -1,7 +1,7 @@
 # sql-seer
 ![In Development](https://img.shields.io/badge/status-In%20Development-yellow)
 
-Interactive web-based SQL editor for various database types. Quickly run various SQL queries across different databases simultaneously in a notebook format.
+This utility is a lightweight interactive web-based SQL editor for various database types. Quickly run various SQL queries across different databases simultaneously in a notebook format. Inspired by my heavy use of Jupyter Notebooks, I wanted a similar utility for quickly querying against databases.
 
 [![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=fff)](#) [![SQLite](https://img.shields.io/badge/SQLite-%2307405e.svg?logo=sqlite&logoColor=white)](#) [![HTML](https://img.shields.io/badge/HTML-%23E34F26.svg?logo=html5&logoColor=white)](#)  [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=000)](#) [![FastAPI](https://img.shields.io/badge/FastAPI-009485.svg?logo=fastapi&logoColor=white)](#) [![SQLite](https://img.shields.io/badge/SQLite-%2307405e.svg?logo=sqlite&logoColor=white)](#)
 
@@ -19,7 +19,7 @@ This web application can be run anywhere you can run Python.
 ### Supported Databases
 
 
-
+Remove?
 Comes with Redis + Caching rules
 
 
@@ -32,6 +32,7 @@ How to install dependencies
 
 ### Encryption
 
+![sql_seer_preview](https://github.com/user-attachments/assets/efb6eb39-5867-4d7f-a197-d18a62252d11)
 
 
 ### Ace editor
