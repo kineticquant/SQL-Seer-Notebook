@@ -33,6 +33,7 @@ How to install dependencies
 ### Encryption
 
 ![sql_seer_preview](https://github.com/user-attachments/assets/efb6eb39-5867-4d7f-a197-d18a62252d11)
+![sql_seer_preview_add_connection](https://github.com/user-attachments/assets/043947a4-2b98-4289-b623-eb2d5fda7cac)
 
 
 ### Ace editor
