@@ -6,9 +6,14 @@ from sqlalchemy.orm import sessionmaker
 # storing details in local sqlite db for now
 # since its running locally, i could do .ini, .property, .env etc for each connection and encrypt but think run-time file-based db may be better
 # not much different than jupyter notebooks where people just store credentials openly in the editor anyhow :D 
+
+# DEFAULT DB:
 DATABASE_URL = "sqlite:///./system.db" 
 
 engine = create_engine(DATABASE_URL, connect_args={"check_same_thread": False})
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 Base = declarative_base()
+
+
+# > need to initiate based on selected database
