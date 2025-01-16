@@ -32,8 +32,8 @@ def connections_config(db: Session):
       
     if not sqlite:
         new_connection = Conn(
-            name="System DB",
-            type="sqlite",
+            name="System",
+            type="SQLite",
             host="localhost",
             port=None,
             sid=None,
