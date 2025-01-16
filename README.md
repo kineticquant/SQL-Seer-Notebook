@@ -22,6 +22,8 @@ This web application can be run anywhere you can run Python.
 Remove?
 Comes with Redis + Caching rules
 
+Uses Ace Editor
+
 
 ### Configuring connections
 Connections are created in the UI and automatically stored within the connections.ini file. The file is auto-created the first time the application starts up. Connection details will remain stored there and can be updated or deleted in the UI automatically. Connection passwords are encrypted upon being entered into the form, but aren't stored in the connections.ini file, and instead are saved in encrypted form in the Redis cache.
