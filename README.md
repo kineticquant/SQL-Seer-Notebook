@@ -1,6 +1,6 @@
 # SQL Seer - A SQL Notebook
 
-This utility is a lightweight interactive web-based SQL editor for various database types. Quickly run various SQL queries across different databases simultaneously in a notebook format. Inspired by my heavy use of Jupyter Notebooks, I wanted a similar utility for quickly querying against databases.
+This utility is a lightweight interactive web-based SQL editor for various database types. Quickly run unlimited SQL queries across different databases simultaneously in a notebook format. Inspired by my heavy use of Jupyter Notebooks, I wanted a similar utility for quickly querying against databases.
 
 This utility also ships with its own database so you can jump to adding data and querying as well if desired. Although it's designed to allow you to connect to and query an unlimited number of databases, no external database is technically required.
 
