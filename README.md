@@ -5,15 +5,14 @@ This utility is a lightweight interactive web-based SQL editor for various datab
 
 This application is actively in development! It's near completion, but queries are not yet being processed.
 
-[![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=fff)](#) [![SQLite](https://img.shields.io/badge/SQLite-%2307405e.svg?logo=sqlite&logoColor=white)](#) [![HTML](https://img.shields.io/badge/HTML-%23E34F26.svg?logo=html5&logoColor=white)](#)  [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=000)](#) [![FastAPI](https://img.shields.io/badge/FastAPI-009485.svg?logo=fastapi&logoColor=white)](#) [![SQLite](https://img.shields.io/badge/SQLite-%2307405e.svg?logo=sqlite&logoColor=white)](#)
+[![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=fff)](#) [![SQLite](https://img.shields.io/badge/SQLite-%2307405e.svg?logo=sqlite&logoColor=white)](#) [![HTML](https://img.shields.io/badge/HTML-%23E34F26.svg?logo=html5&logoColor=white)](#)  [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=000)](#) [![FastAPI](https://img.shields.io/badge/FastAPI-009485.svg?logo=fastapi&logoColor=white)](#) [![HTMX](https://img.shields.io/badge/HTMX-36C?logo=htmx&logoColor=fff)](#)
 
-[![TailwindCSS](https://img.shields.io/badge/Tailwind%20CSS-%2338B2AC.svg?logo=tailwind-css&logoColor=white)](#)
+### UI
+- The UI is designed using Flowbite.
 
-+ Flowbite
 
-Supports Oracle, Postgres, SQL Server, SQLite (comes included, or add your own)
 
-TBD: [![HTMX](https://img.shields.io/badge/HTMX-36C?logo=htmx&logoColor=fff)](#)
+TBD: 
 
 Ships with its own database so you can jump to adding data and querying as well if desired!
 
@@ -22,10 +21,13 @@ Built on HTMX and FastAPI.
 
 This web application can be run anywhere you can run Python.
 
-[Docker]
 
 
 ### Supported Databases
+- Postgres
+- Oracle
+- SQL Server
+- SQLite (add your own connections if desired, but SQLite also comes included)
 
 
 Remove?
