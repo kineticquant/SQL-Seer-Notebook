@@ -25,6 +25,7 @@ This utility also ships with its own database so you can jump to adding data and
 ### Configuring Connections
 Connections are created in the UI and automatically stored within the system's SQLite database. The database is auto-created the first time the application starts up. Connection details will remain stored there and can be updated or deleted in the UI automatically in the "Manage Connections" section.
 
+
 ### Dependencies
 All library dependencies are included within requirements.txt. Simply run "pip install -r requirements.txt" in your virtual environment to build the dependencies.
 
@@ -34,12 +35,10 @@ All library dependencies are included within requirements.txt. Simply run "pip i
 - The editor built-in is built on top of Ace editor
 - Customizable themes have been included to modify the look/feel of the editor as desired
 
-HOW TO RUN? MAKE IT FLASK? FASTAPI?
-How to install dependencies
 
 
 ![sql_seer_preview](https://github.com/user-attachments/assets/efb6eb39-5867-4d7f-a197-d18a62252d11)
-![sql_seer_preview_add_connection](https://github.com/user-attachments/assets/043947a4-2b98-4289-b623-eb2d5fda7cac)
+![sql_seer_preview_manage_connections](https://github.com/user-attachments/assets/63631c23-4317-48d1-83f9-dc05152775de)
 ![sql_seer_preview_create_connection_details](https://github.com/user-attachments/assets/7f1556d3-4dfb-4e56-b1cd-b1f5ed6f5e35)
 
 
