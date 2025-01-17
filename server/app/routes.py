@@ -84,11 +84,13 @@ async def create_connection(
     host: str = Form(...),
     port: int = Form(...),
     password: str = Form(...),
-    ssl: bool = Form(False),  # default to False if not provided
-    sid: str = Form(None),  
-    svc_name: str = Form(None),  
-    alt_conf: str = Form(None),  
-    description: str = Form(None),  
+    ssl: bool = Form(False),  
+    sid: str = Form(None),
+    svc_name: str = Form(None),
+    alt_conf: str = Form(None),
+    description: str = Form(None),
+    dsn: str = Form(None),  
+    driver: str = Form(None),  
     db: Session = Depends(get_db)
 ):
     conn_data = {
@@ -102,6 +104,8 @@ async def create_connection(
         "svc_name": svc_name,
         "alt_conf": alt_conf,
         "description": description,
+        "dsn": dsn,  
+        "driver": driver,  
     }
 
     print("Received connection data:", conn_data)
@@ -114,6 +118,88 @@ async def create_connection(
     return f"""
     <li>{db_conn.name} - {db_conn.type} - {db_conn.host}:{db_conn.port} - SSL: {db_conn.ssl}</li>
     """
+
+@router.put("/update-connection", response_class=HTMLResponse)
+async def update_connection(
+    id: int = Form(...),
+    name: str = Form(...),
+    type: str = Form(...),
+    host: str = Form(...),
+    port: int = Form(...),
+    password: str = Form(...),
+    ssl: bool = Form(False),
+    sid: str = Form(None),  
+    svc_name: str = Form(None),  
+    description: str = Form(None),
+    dsn: str = Form(None),  
+    driver: str = Form(None),  
+    db: Session = Depends(get_db)
+):
+    try:
+        db_conn = db.query(models.Conn).filter(models.Conn.id == id).first()
+        if not db_conn:
+            raise HTTPException(status_code=404, detail="Connection not found")
+
+        db_conn.name = name
+        db_conn.type = type
+        db_conn.host = host
+        db_conn.port = port
+        db_conn.password = password
+        db_conn.ssl = ssl
+        db_conn.sid = sid  
+        db_conn.svc_name = svc_name  
+        db_conn.description = description
+        db_conn.dsn = dsn  
+        db_conn.driver = driver  
+
+        db.commit()
+        db.refresh(db_conn)
+
+        return ""
+    except Exception as e:
+        print(f"Failed to update connection: {str(e)}")
+        raise HTTPException(status_code=500, detail="Failed to update connection")
+
+@router.put("/update-connection", response_class=HTMLResponse)
+async def update_connection(
+    id: int = Form(...),
+    name: str = Form(...),
+    type: str = Form(...),
+    host: str = Form(...),
+    port: int = Form(...),
+    password: str = Form(...),
+    ssl: bool = Form(False),
+    sid: str = Form(None),  
+    svc_name: str = Form(None),  
+    description: str = Form(None),
+    dsn: str = Form(None),  
+    driver: str = Form(None),  
+    db: Session = Depends(get_db)
+):
+    try:
+        db_conn = db.query(models.Conn).filter(models.Conn.id == id).first()
+        if not db_conn:
+            raise HTTPException(status_code=404, detail="Connection not found")
+
+        db_conn.name = name
+        db_conn.type = type
+        db_conn.host = host
+        db_conn.port = port
+        db_conn.password = password
+        db_conn.ssl = ssl
+        db_conn.sid = sid  
+        db_conn.svc_name = svc_name  
+        db_conn.description = description
+        db_conn.dsn = dsn  
+        db_conn.driver = driver  
+
+        db.commit()
+        db.refresh(db_conn)
+
+        return ""
+    except Exception as e:
+        print(f"Failed to update connection: {str(e)}")
+        raise HTTPException(status_code=500, detail="Failed to update connection")
 
 @router.get("/get-connections", response_class=HTMLResponse)
 async def get_connections(request: Request, db: Session = Depends(get_db)):
@@ -137,38 +223,16 @@ async def get_connections(request: Request, db: Session = Depends(get_db)):
         </tr>
         """
     return connections_html
+    
+# reduced route complexity for index 
+# didnt want to include a full set of details to pass to the page for no reason since we're
+# just displaying the option's namne and type
+@router.get("/get-connections-options", response_class=HTMLResponse)
+async def get_connections_options(db: Session = Depends(get_db)):
+    connections = db.query(models.Conn).all()
+    options_html = ""
+    for conn in connections:
+        options_html += f'<option value="{conn.id}">{conn.name} - {conn.type}</option>'
+    return options_html
 
-@router.put("/update-connection", response_class=HTMLResponse)
-async def update_connection(
-    id: int = Form(...),
-    name: str = Form(...),
-    type: str = Form(...),
-    host: str = Form(...),
-    port: int = Form(...),
-    password: str = Form(...),
-    ssl: bool = Form(False),
-    description: str = Form(None),
-    db: Session = Depends(get_db)
-):
-    try:
-        # find the connection to update
-        db_conn = db.query(models.Conn).filter(models.Conn.id == id).first()
-        if not db_conn:
-            raise HTTPException(status_code=404, detail="Connection not found")
 
-        db_conn.name = name
-        db_conn.type = type
-        db_conn.host = host
-        db_conn.port = port
-        db_conn.password = password
-        db_conn.ssl = ssl
-        db_conn.description = description
-
-        # Commit the changes
-        db.commit()
-        db.refresh(db_conn)
-
-        return ""
-    except Exception as e:
-        print(f"Failed to update connection: {str(e)}")
-        raise HTTPException(status_code=500, detail="Failed to update connection")
