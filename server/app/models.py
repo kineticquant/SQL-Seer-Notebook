@@ -14,6 +14,8 @@ class Conn(Base):
     port = Column(Integer, index=True, nullable=True)
     sid = Column(String, index=True, nullable=True)
     svc_name = Column(String, index=True, nullable=True)
+    dsn = Column(String)  # For Oracle (optional)
+    driver = Column(String)  # For SQL Server (e.g., "ODBC Driver 17 for SQL Server")
     alt_conf = Column(String, index=True, nullable=True)
     description = Column(String, index=True, nullable=True)
     password = Column(String, index=True)
@@ -30,3 +32,5 @@ class ConnCreate(BaseModel):
     description: str
     password: str
     ssl: str
+    dsn: str
+    driver: str
