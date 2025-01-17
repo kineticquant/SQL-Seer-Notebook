@@ -16,7 +16,7 @@ This utility also ships with its own database so you can jump to adding data and
 | Finalize query delivery logic against target databases | COMPLETED ✅                  |
 | Cascading results windows                      | In Progress                     |
 | Results export to CSV, Excel, and more         | In Progress                         |
-| Implement Redis for caching of historical queries | Pending                         |
+| Implement Redis or local DB for caching of historical queries | Pending                         |
 | Docker deployment                              | Pending                         |
 
 
