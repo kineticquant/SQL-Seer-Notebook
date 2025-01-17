@@ -18,21 +18,29 @@ document.addEventListener('htmx:afterRequest', function (event) {
     }
 });
 
-function openEditModal(id, name, type, host, port, password, ssl, description) {
+
+function openEditModal(id, name, type, host, port, password, ssl, description, sid, svc_name, dsn, driver) {
+    // console.log("openEditModal called with:", { id, name, type, host, port, password, ssl, description, sid, svc_name, dsn, driver });
+
     document.getElementById('editConnectionId').value = id;
-    document.getElementById('editName').value = name;
-    document.getElementById('editType').value = type;
-    document.getElementById('editHost').value = host;
-    document.getElementById('editPort').value = port;
-    document.getElementById('editPassword').value = password;
-    document.getElementById('editSsl').checked = ssl;
-    document.getElementById('editDescription').value = description;
+    document.getElementById('editName').value = name || '';
+    document.getElementById('editType').value = type || '';
+    document.getElementById('editHost').value = host || '';
+    document.getElementById('editPort').value = port || '';
+    document.getElementById('editPassword').value = password || '';
+    document.getElementById('editSsl').checked = ssl === 'true';
+    document.getElementById('editDescription').value = description || '';
+    document.getElementById('editSid').value = sid || '';
+    document.getElementById('editSvcName').value = svc_name || '';
+    document.getElementById('editDsn').value = dsn || '';
+    document.getElementById('editDriver').value = driver || '';
 
     const modalToggleButton = document.querySelector('[data-modal-toggle="editConnectionModal"]');
     if (modalToggleButton) {
         modalToggleButton.click(); 
     }
 }
+
 
 
 document.addEventListener('htmx:afterRequest', function (event) {
