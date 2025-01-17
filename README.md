@@ -14,7 +14,16 @@ This utility also ships with its own database so you can jump to adding data and
 - Cascading results windows
 - Results export to CSV, Excel, and more
 - Implement redis for caching of historical queries
-- Docker deployment  
+- Docker deployment
+
+- | Task                                           | Status                          |
+|------------------------------------------------|---------------------------------|
+| ~~Finalize query delivery logic against target databases~~ | COMPLETED ✅                  |
+| Cascading results windows                      | In Progress                     |
+| Results export to CSV, Excel, and more         | Pending                         |
+| Implement Redis for caching of historical queries | Pending                         |
+| Docker deployment                              | Pending                         |
+
 
 
 ### Supported Databases
