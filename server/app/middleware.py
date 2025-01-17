@@ -32,15 +32,18 @@ def connections_config(db: Session):
       
     if not sqlite:
         new_connection = Conn(
-            name="System",
+            name="System Database",  # Ensure the name matches the query
             type="SQLite",
             host="localhost",
-            port=None,
-            sid=None,
+            port=0,
+            sid=None,  # Use None instead of empty strings
             svc_name=None,
             alt_conf=None,
-            description="System Database",
-            password=None
+            description="Built-in SQL Seer database. This connection cannot be modified.",
+            password=None,
+            ssl=None,
+            driver=None,
+            dsn=None
         )
         db.add(new_connection)
         logger.info("System database connection added.")
@@ -49,3 +52,6 @@ def connections_config(db: Session):
         logger.info("System database configuration found.")
         
 # end startup proc
+
+
+    
