@@ -83,23 +83,25 @@
           </div>
         </div>
 
+
     <div id="queryBar" class="max-w-screen-xl mx-auto">
         <button id="runQuery" class="mt-5 mb-1 bg-blue-500 border border-black text-white px-4 rounded text-sm">Run</button>
         <button id="clearEditor" class="mt-5 mb-1 border border-black text-black px-4 rounded text-sm bg-transparent hover:bg-black hover:text-white">Clear</button>
-        <select id="connectionSelector" class="mt-5 mb-1 border border-black text-black px-1 bg-transparent rounded text-sm">
-            <option value="option1">Test SQLite DB - PHX</option>
-            <option value="option2">Option 2</option>
-            <option value="option3">Option 3</option>
+        <select id="connectionSelector" class="mt-5 mb-1 border border-black text-black px-1 bg-transparent rounded text-sm"
+                hx-get="/get-connections-options"
+                hx-trigger="load"
+                hx-target="this"
+                hx-swap="innerHTML">
+            <!-- Options will be populated dynamically by HTMX -->
+            <option value="">Loading connections...</option>
         </select>
-        <button class="mt-5 mb-1 border border-black text-black px-1 bg-transparent rounded text-sm">Save</button>
+        <!--<button class="mt-5 mb-1 border border-black text-black px-1 bg-transparent rounded text-sm">Save</button> -->
         <button class="mt-5 mb-1 border border-black text-black px-1 bg-transparent rounded text-sm"><i>Add Export Result</i></button>
     </div>
-    
+
     <div id="editor" class="resize-y overflow-auto border max-w-screen-xl mx-auto border-gray-300 rounded h-48 min-h-[100px]"></div>
-    
-    <div id="result"></div>
 
-
+    <div id="result" class="mt-4 max-w-screen-xl mx-auto"></div>
 
     <!-- editor selector modal -->
 
@@ -214,11 +216,8 @@
     <!-- ace -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js"></script>
     <script>
-        
-
         //editor.setValue("select ");
-       
-
+        /* So many issues with this not posting, so rewriting
         document.getElementById('runQuery').addEventListener('click', () => {
             const query = editor.getValue();
             // Send query to the server (TBD with backend logic)
@@ -235,17 +234,65 @@
             })
             .catch(error => console.error('Error:', error));
         });
+        */
+        document.getElementById('runQuery').addEventListener('click', () => {
+            const query = editor.getValue();
+            const connectionId = document.getElementById('connectionSelector').value;
 
+            if (!connectionId) {
+                alert("Please select a connection first.");
+                return;
+            }
+
+            fetch('/run-sql', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ query, connection_id: connectionId })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === "success") {
+                    const results = data.results;
+                    let tableHtml = '<table class="min-w-full bg-white border border-gray-300">';
+                    
+                    // Add table headers
+                    if (results.length > 0) {
+                        tableHtml += '<thead><tr>';
+                        for (const key in results[0]) {
+                            tableHtml += `<th class="px-4 py-2 border-b">${key}</th>`;
+                        }
+                        tableHtml += '</tr></thead>';
+                    }
+
+                    // Add table rows
+                    tableHtml += '<tbody>';
+                    results.forEach(row => {
+                        tableHtml += '<tr>';
+                        for (const key in row) {
+                            tableHtml += `<td class="px-4 py-2 border-b">${row[key]}</td>`;
+                        }
+                        tableHtml += '</tr>';
+                    });
+                    tableHtml += '</tbody></table>';
+
+                    document.getElementById('result').innerHTML = tableHtml;
+                } else {
+                    document.getElementById('result').innerHTML = `<p class="text-red-500">Error: ${data.detail}</p>`;
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                document.getElementById('result').innerHTML = `<p class="text-red-500">Error: ${error.message}</p>`;
+            });
+        });
 
         // clearing out the editor
         document.getElementById('clearEditor').addEventListener('click', () => {
             //editor.session.clear();
             editor.setValue('', '');
-        });
-
-        
-        
-        
+        });        
     </script>
     <script src="/static/js/app.js"></script>
     <script src="/static/js/theme.js"></script>
