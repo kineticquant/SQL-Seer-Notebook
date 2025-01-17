@@ -10,7 +10,9 @@ This utility also ships with its own database so you can jump to adding data and
 
 ![In Development](https://img.shields.io/badge/status-In%20Development-yellow)
 ### Open Development Tasks
-- Finalize query delivery logic against target databases
+- ~~Finalize query delivery logic against target databases~~ <span style="color:green">COMPLETED</span>
+- Cascading results windows
+- Results export to CSV, Excel, and more
 - Implement redis for caching of historical queries
 - Docker deployment  
 
