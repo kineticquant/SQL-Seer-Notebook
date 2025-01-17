@@ -7,7 +7,7 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from .middleware import file_config, connections_config
 from .routes import router
-from . import database, models
+from . import database
 from .database import SessionLocal
 
 # Configure logging
@@ -53,3 +53,7 @@ async def startup_event():
         connections_config(db)
     finally:
         db.close()
+        
+        
+        
+        
